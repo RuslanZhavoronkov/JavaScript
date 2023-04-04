@@ -1,7 +1,8 @@
-//Корабль размещается в клетках 3, 4, 5
-var location1 = 3;
-var location2 = 4;
-var location3 = 5;
+//Корабль размещается в случайных клетках
+var randomLoc = Math.floor(Math.random() * 5);
+var location1 = randomLoc;
+var location2 = location1 + 1;
+var location3 = location2 + 1;
 
 var guess; //номер ячейки, введенный пользователем (переменная пустая (undefined) пока пользователь не введет координаты выстрела)
 var hits = 0;  //кол-во попаданий (начальное значение 0)
@@ -34,5 +35,5 @@ while (isSunk == false) {
 
 //Выводим результат для пользователя
 
-var stats = "You took " + guesses + "guesses to sink the battleship, " + "which means your shooting accuracy was " + (3/guesses);
+var stats = "You took " + guesses + " guesses to sink the battleship, " + "which means your shooting accuracy was " + (3/guesses);
 alert (stats);
