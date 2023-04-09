@@ -10,12 +10,41 @@
                           69, 64, 66, 55, 52, 61,
                           46, 31, 57, 52, 44, 18,
                           41, 53, 55, 61, 51, 44];
+            
             var output;
+            var highScore = 0; //переменная, хранящая максимальный результат
+            var bestSolutions = []; // массив, хранящий переменные с максимальным результатом
+           
 
+           //Создаем цикл поиска образца с максимальным количеством мыльных пузырей
             for (var i = 0; i < scores.length; i++) {
                 output = "Bubble solution #" + i + " score " + scores[i];
                 console.log(output);
+
+                //выводим образец с максимальным количеством пузырей
+                if (scores[i] > highScore) {
+                    scores[i];
+                    highScore = scores[i];
+                }
             }
+           
+            //Создаем цикл по поиску всех образцов с максимальном количеством мыльных пузырей
+            for (var i = 0; i < scores.length; i++) {
+                if (scores[i] == highScore) {
+                    
+                    bestSolutions.push(i);
+                }
+            }
+           
+
+            console.log ("Bubles tests: " + scores.length);
+            console.log ("Highest bubble score: " + highScore);
+            console.log ("Solutions with highest score: " + bestSolutions);
+
+            console.log ("man "+ bestSolutions);
+
+           
+           
         </script>
     </head>
     <body></body>
