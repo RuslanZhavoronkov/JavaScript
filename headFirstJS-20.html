@@ -55,7 +55,26 @@
             }
 
 
+
+
+
             //Функция выбирает образец с максимальным количеством пузырей и минимальными затратами
+            function getMostCostEffectiveSolution(scores, costs, highScore) {
+                var cost = 100; //переменная сохраняет результаты текущих затрат
+                var index; //Индекс образца с минимальными затратами
+
+                //Перебираем массив scores и проверяем является ли результат максимальным
+                for(var i = 0; i < scores.length; i++) {
+                    if (scores[i] == highScore) {
+                        if (cost > costs[i]) {
+                            index = i;
+                            cost = costs[i];
+                        }
+                    }
+                }
+
+                return index;
+            }
 
 
 
@@ -65,6 +84,10 @@
             
             var bestSolutions = getBestResults(scores, highScore);
             console.log ("Solutions with highest score: " + bestSolutions);
+
+            var mostCostEffective = getMostCostEffectiveSolution(scores, costs, highScore);
+            console.log("Bubble Solution #" + mostCostEffective + " is the most cost effective");
+
 
             
 
