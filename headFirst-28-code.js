@@ -6,9 +6,26 @@ var fiat = {
     passengers: 2,
     convertible: false,
     mileage: 88000,
+    started: false, //свойсво для хранения текущего состояния двигателя
+    
+    //добавим метод для запуска двигателя
+    start: function() {
+        started = true;
+    },
+
+    //добавим метод для остановки двигателя
+    stop: function() {
+        started = false;
+    },
+
     // добавим метод в объект (функции определяемые в объекте)
     drive: function () {          
-        alert ("Zoom zoom !");
+        if (started) {
+            alert ("Zoom zoom !");
+        } else {
+            alert ("You need to start the engine first");
+        }
+       
     }
 };
 
