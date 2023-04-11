@@ -10,17 +10,17 @@ var fiat = {
     
     //добавим метод для запуска двигателя
     start: function() {
-        started = true;
+        this.started = true;
     },
 
     //добавим метод для остановки двигателя
     stop: function() {
-        started = false;
+        this.started = false;
     },
 
     // добавим метод в объект (функции определяемые в объекте)
     drive: function () {          
-        if (started) {
+        if (this.started) {
             alert ("Zoom zoom !");
         } else {
             alert ("You need to start the engine first");
