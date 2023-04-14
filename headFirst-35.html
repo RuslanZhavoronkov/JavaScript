@@ -4,8 +4,13 @@
         <meta charset="utf-8">
         <title> Planets </title>
         <script>
+            function init() {
             var planet = document.getElementById("greenplanet");
             planet.innerHTML = "Red Alert: hit by phaser fire!";
+            }
+
+            window.onload = init; //Связываем функцию со свойством window.onload объекта window
+           
         </script>
     </head>
     <body>
