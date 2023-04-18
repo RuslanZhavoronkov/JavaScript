@@ -1,1 +1,1 @@
-console.log(1 == "");
+console.log(3 + " bananas " + 2 + " apples");
