@@ -6,9 +6,9 @@ emot = emot.trim(); // метод удаляет пробельные симво
 emot = toUpperCase(); //Переводит символы строки в верхний регистр
 
 for (var i = 0; i < emot.length; i++) {
-    if (emot.charAt(i) === "X") {
+    if (emot.charAt(i) === "X") { //Получает символ с конкретным индексом в строке 
         hugs++;
-    } else if (emot.charAt(i) == "0") {
+    } else if (emot.charAt(i) == "O") {
         kisses++;
     }
 }
