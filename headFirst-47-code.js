@@ -23,7 +23,7 @@ var fiat2 = {
 //Создаем массив из объектов-машин
 var lot = [chevy, taxi, fiat1, fiat2];
 
-//Напишем функцию по поиску машин на стоянке
+//Напишем функцию по поиску машин на стоянке. Функция будет возвоащать индекс массива
 function findCarInLot(car) {
     for (var i = 0; i < lot.length; i++) {
         if (car === lot[i]) {
@@ -33,11 +33,11 @@ function findCarInLot(car) {
 }
 
 //Создадим глобальные ссылочные переменные, содержащие ссылки на объекты-машины(вернувшиеся из функции)
-var loc1 = findCarInLot(fiat2);
-console.log(findCarInLot(fiat2));
-var loc2 = findCarInLot(taxi);
+var loc1 = findCarInLot(fiat2); //3
+console.log(findCarInLot(fiat2)); 
+var loc2 = findCarInLot(taxi); //1
 console.log(findCarInLot(taxi));
-var loc3 = findCarInLot(chevy);
+var loc3 = findCarInLot(chevy); //0
 console.log(findCarInLot(chevy));
-var loc4 = findCarInLot(fiat1);
+var loc4 = findCarInLot(fiat1); //2
 console.log(findCarInLot(fiat1));

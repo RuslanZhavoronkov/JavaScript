@@ -29,7 +29,7 @@ function lieDetectorTest() {
         lies++;
     }
 
-    var yourName = " ";
+    var yourName = " "; //строка содержит пробел = непустая строка
     if (yourName) { 
         console.log ("Guess you lied about your name");
         lies++; //lies = 2 + 1 = 3
@@ -45,3 +45,5 @@ console.log("You told " + numberOfLies + " lies");
 if (numberOfLies >=3) {
     console.log ("Guilty as charget");
 }
+
+//Guilty as charget (подозреваемый виновен)
