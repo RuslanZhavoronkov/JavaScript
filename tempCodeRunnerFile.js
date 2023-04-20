@@ -1,3 +1,3 @@
 var data = "name|phone|address";
-val = data.substring(5);
-console.log("Substring is now " + val);
+var vals = data.split("|"); // Преобразует строку в массив
+console.log("Split array is " +  vals);
