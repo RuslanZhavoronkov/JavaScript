@@ -1,6 +1,3 @@
-var input = "jenny@wickedlysmart.com";
-for (var i = 0; i < input.length; i++) {
-    if (input.charAt(i) === "@") {
-        console.log ("There's an @ sign at index " + i);
-    }
-}
+var phrase = "the cat in the hat";
+index = phrase.indexOf("dog");
+console.log("there's a dog sitting at index " + index);
