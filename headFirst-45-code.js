@@ -17,3 +17,9 @@ console.log(undefined == null);
 
 //Сравнение числа с пустой строкой
 console.log(1 == "");
+
+
+
+console.log(true === (1 === "1"));
+console.log ("true" == true);
+console.log("banana" < "mango");
