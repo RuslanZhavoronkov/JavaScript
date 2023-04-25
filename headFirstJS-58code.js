@@ -78,12 +78,21 @@ function parseGuess (guess) {
             alert("Oops, that isn't on the board.");
         } else if (row < 0 || row >= model.boardSize || column < 0 || column >= model.boardSize) {
             alert ("Oops, that's of the board!");
+        } else {       
+            return row + column; //В этой точке все проверки пройдены поэтому функция может вернуть результат (число + "строка" = "числострока")
         }
     }
+    return null; //Если управление передано в эту точку, значит какая-то проверка не прошла, и метод возвращает null
 }
 
+console.log (parseGuess("A0"));
+console.log (parseGuess("B6"));
+console.log (parseGuess("G3"));
+console.log (parseGuess("H0"));
+console.log (parseGuess("A7"));
 
 
+/*
 //Создадим объект-Controller(который обрабатывает выстрелы и отвечает за завершение игры)
 var controller = {
     guesses: 0, //колличество выстрелов
@@ -92,3 +101,4 @@ var controller = {
         //Код метода
     }
 }
+*/
