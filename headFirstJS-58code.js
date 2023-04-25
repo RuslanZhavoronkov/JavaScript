@@ -32,16 +32,20 @@ var model = {
     fire: function (guess) { //получаем координаты выстрела
         for (var i = 0; i < this.numShips; i++) { //Перебираем массив ships, последовательно, проверяя каждый корабль
             var ship = this.ships[i]; //Получаем объект ship
-            var locations = ship.locations; //Затем получаем массив locations из объекта ship
-            var index = locations.indexOf(guess); //Затем индекс клетки в locations(Метод indexOf ищет в массиве указанное значение и возвращает его индекс (или -1 если значение отсутствует в массиве))
+            var index = ship.locations.indexOf(guess); //Затем индекс клетки в locations(Метод indexOf ищет в массиве указанное значение и возвращает его индекс (или -1 если значение отсутствует в массиве))
             if (index >= 0) {              //Если координаты клетки присуствуют в массиве locations, значит выстрел попал в цель
                 ship.hits[index] = "hit"; //Ставим отметку в массиве hits по тому же индексу
+                view.displayHit(guess); //Приказываем представлению (объекту view) вывести маркер попадания
+                view.displayMessage("Hit!"); //Приказываем представлению (объекту view) вывести сообщение "Hit" 
                 if (this.isSunk(ship)) { //Если корабль потоплен, то мы увеличиваем счетчик потопленных кораблей в свойстве shipsSunk
+                    view.displayMessage("You sank my battleship!");
                     this.shipsSunk++;
                 }
                 return true; // А еще нужно вернуть true, потому что выстрел оказался удачным
             }
         }
+        view.displayMiss(guess); //Не попали! Приказаваем объекту view (представлению) вывести маркер-промаха 
+        view.displayMessage("You missed."); //Приказываем представлению вывести сообщение о промахе
         return false; //Если же после перебора всех кораблей попадание так и не обнаружено (игрок промахнулся), а метод возвращает false
     },
 
@@ -56,3 +60,13 @@ var model = {
     }
 };
 
+model.fire("53");
+model.fire("06");
+model.fire("16");
+model.fire("26");
+model.fire("34");
+model.fire("24");
+model.fire("44");
+model.fire("12");
+model.fire("11");
+model.fire("10");
