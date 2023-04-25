@@ -16,7 +16,7 @@ var view = {
     }
 }
 
-//Создадим объект model, содержащую информацию о текущем состоянии игры
+//Создадим объект MODEL, содержащую информацию о текущем состоянии игры
 var model = {
     boardSize: 7, //размер игрового поля
     numShips: 3, //количество кораблей в игре
@@ -60,13 +60,35 @@ var model = {
     }
 };
 
-model.fire("53");
-model.fire("06");
-model.fire("16");
-model.fire("26");
-model.fire("34");
-model.fire("24");
-model.fire("44");
-model.fire("12");
-model.fire("11");
-model.fire("10");
+
+//Создадим вспомагательную функцию parseGuess, которая будет принимать данные от игрока, преобразовывать, проверять на соответствие
+function parseGuess (guess) {
+    var alphabet = ["A", "B", "C", "D", "E", "F", "G"];
+
+    if (guess === null || guess.length !== 2) { //проверяем данные на null и убеждаемся, что в строке два символа
+        alert ("Oops, please enter a letter and a number on the board.");
+    } else {
+        var firstChar = guess.charAt(0); //Сохраняем первый символ guess (Буква) в переменной firstChar
+        var row = alphabet.indexOf(firstChar); //Передаем первый сивол букву методу indexOf массива alphabet и получаем  цифру-индекс и сохр. в перем. row
+
+        var column = guess.charAt(1); //сохраняем вторую "цифру"(строковое значение) в переменной column
+
+
+        if (isNaN(row) || isNaN(column)) {
+            alert("Oops, that isn't on the board.");
+        } else if (row < 0 || row >= model.boardSize || column < 0 || column >= model.boardSize) {
+            alert ("Oops, that's of the board!");
+        }
+    }
+}
+
+
+
+//Создадим объект-Controller(который обрабатывает выстрелы и отвечает за завершение игры)
+var controller = {
+    guesses: 0, //колличество выстрелов
+
+    processGuess: function(guess) { //Метод получает координаты в формате "A0"
+        //Код метода
+    }
+}
