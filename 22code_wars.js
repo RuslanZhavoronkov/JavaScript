@@ -23,3 +23,11 @@ function basicOp(operation, value1, value2) {
             return 0;
     }
 }
+
+function basicOp(o, v1, v2)
+{
+ if (o === '+') return v1 + v2;
+ if (o === '-') return v1 - v2;
+ if (o === '/') return v1 / v2;
+ if (o === '*') return v1 * v2;
+}
