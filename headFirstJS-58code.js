@@ -113,9 +113,13 @@ var controller = {
 function init() {
     var fireButton = document.getElementById("fireButton"); //Получаем ссылку на кнопку "Fire!" по идентификатору кнопки
     fireButton.onclick = handleFireButton // событие onclick и функция - "обработчик события" handleFireButton, которая будет вызываться при каждом нажатии кнопки "Fire!"
+   
+    var guessInput = document.getElementById("guessInput");//сохраним в переменной ссылку на объект поле ввода
+    guessInput.onkeydown = handleKeyPress; //вызвать функцию-обработчик события при нажатии кнопки  на поле ввода
+
 }
 
-//Создадим функцию-обработчик события (нажатие кнопки)
+//Создадим функцию-обработчик события (нажатие кнопки "Fire!")
 function handleFireButton() {   //Функция-обработчик события, нажатия кнопки 'Fire!'
     //Код получения данных от формы
     var guessInput = document.getElementById("guessInput") //получаем ссылку на элемент (поле ввода)
@@ -124,5 +128,14 @@ function handleFireButton() {   //Функция-обработчик событ
 
     guessInput.value = "";//удаляем содержимое поля ввода
 }  
+
+//Создадим функцию-обработчик события при нажатии кнопки enter на поле ввода
+function handleKeyPress(e) { //Браузер передает объект-события обработчику. Объект содержит информацию какая клавиша была нажата
+    var fireButton = document.getElementById("fireButton");
+    if (e.keyCode === 13) {
+        fireButton.click();//Вызов метода click() кнопки fireButton(фактически этот вызов имитирует нажатие кнопки fireButton)  
+        return false; //чтобы форма не делала ничего лишнего
+    }
+}
 
 window.onload = init //Браузер будует выполнять функцию init при полной загрузке страницы
