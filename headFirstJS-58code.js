@@ -108,16 +108,21 @@ var controller = {
         }
     }
 }
- controller.processGuess("A0");
+ 
+//Создадим функцию для размещения кода
+function init() {
+    var fireButton = document.getElementById("fireButton"); //Получаем ссылку на кнопку "Fire!" по идентификатору кнопки
+    fireButton.onclick = handleFireButton // событие onclick и функция - "обработчик события" handleFireButton, которая будет вызываться при каждом нажатии кнопки "Fire!"
+}
 
- controller.processGuess("A6");
- controller.processGuess("B6");
- controller.processGuess("C6");
+//Создадим функцию-обработчик события (нажатие кнопки)
+function handleFireButton() {   //Функция-обработчик события, нажатия кнопки 'Fire!'
+    //Код получения данных от формы
+    var guessInput = document.getElementById("guessInput") //получаем ссылку на элемент (поле ввода)
+    var guess = guessInput.value; //Сохраняем в переменной guess значение (координаты выстрела), введенное пользователем
+    controller.processGuess(guess); //вызываем метод объекта controller.processGuess и передаем аргументом в функцию, введенные координаты пользователем 
 
- controller.processGuess("C4");
- controller.processGuess("D4");
- controller.processGuess("E4");
+    guessInput.value = "";//удаляем содержимое поля ввода
+}  
 
- controller.processGuess("B0");
- controller.processGuess("B1");
- controller.processGuess("B2");
+window.onload = init //Браузер будует выполнять функцию init при полной загрузке страницы
