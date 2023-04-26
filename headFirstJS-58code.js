@@ -62,6 +62,7 @@ var model = {
 
 
 //Создадим вспомагательную функцию parseGuess, которая будет принимать данные от игрока, преобразовывать, проверять на соответствие
+// в итоге выводить стоку "числочисло"
 function parseGuess (guess) {
     var alphabet = ["A", "B", "C", "D", "E", "F", "G"];
 
@@ -85,20 +86,38 @@ function parseGuess (guess) {
     return null; //Если управление передано в эту точку, значит какая-то проверка не прошла, и метод возвращает null
 }
 
-console.log (parseGuess("A0"));
-console.log (parseGuess("B6"));
-console.log (parseGuess("G3"));
-console.log (parseGuess("H0"));
-console.log (parseGuess("A7"));
 
 
-/*
 //Создадим объект-Controller(который обрабатывает выстрелы и отвечает за завершение игры)
 var controller = {
     guesses: 0, //колличество выстрелов
 
     processGuess: function(guess) { //Метод получает координаты в формате "A0"
-        //Код метода
+        var location = parseGuess(guess); //будем использовать вспомогательную функцию parseGuess для проверки введенных данных
+        if (location) {
+            this.guesses++;
+            var hit = model.fire(location); //передаем методу fire объекта модель аргумент-координата выстрела location
+            
+            //(hit при попадании возвращает true(из метода model.fire(location))). 
+            //Если выстрел попал в цель, а количество потопленных кораблей равно количеству кораблей в игре,
+            //Выводится сообщение о том, что все корабли потоплены
+
+            if (hit && model.shipsSunk === model.numShips) {
+                view.displayMessage("You sank all my battleships, in " + this.guesses + " guesses");
+            }
+        }
     }
 }
-*/
+ controller.processGuess("A0");
+
+ controller.processGuess("A6");
+ controller.processGuess("B6");
+ controller.processGuess("C6");
+
+ controller.processGuess("C4");
+ controller.processGuess("D4");
+ controller.processGuess("E4");
+
+ controller.processGuess("B0");
+ controller.processGuess("B1");
+ controller.processGuess("B2");
