@@ -97,6 +97,19 @@ var model = {
             }
         }
         return newShipLocations;
+    },
+
+
+    collision: function (locations) {
+        for (var i = 0; i < this.numShips; i++) {
+            var ship = model.ships[i]; //внешним циклом for перебираем поочередно объекты-корабли
+            for (var j = 0; j < locations.length; j++) {   //внутренним циклом for перебираем переданный новый массив locations
+                if (ship.locations.indexOf(locations[j]) >=0 ) { //методом indexOf проверяем присутствует ли заданная позиция в массиве объекта
+                    return true; //перекрытие обнаружено
+                }
+            }
+        }
+        return false; //перекрытия позиций отсутствуют 
     }
 };
 
