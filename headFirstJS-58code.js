@@ -57,6 +57,17 @@ var model = {
             }
         }
         return true; //А если нет-корабль потоплен! Метод возвращает true
+    },
+
+    //Метод, создающий массив кораблей с количеством this.numShips
+    generateShipLocations: function() {
+        var locations;
+        for (var i = 0; i < this.numShips; i++) {
+            do {
+                locations = this.generateShip(); //генерируем новый случайный массив locations
+            } while (this.collision(locations)); // после проверки массив locations
+            this.ships[i].locations = locations; //сохраняются в свойстве  locations объекта корабля в массиве model.ships
+        }
     }
 };
 
