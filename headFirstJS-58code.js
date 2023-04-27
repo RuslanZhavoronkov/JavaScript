@@ -68,6 +68,35 @@ var model = {
             } while (this.collision(locations)); // после проверки массив locations
             this.ships[i].locations = locations; //сохраняются в свойстве  locations объекта корабля в массиве model.ships
         }
+    },
+
+    //Метод generateShip - создает массив со случайными позициями корабля
+    generateShip: function () {
+        var direction = Math.floor(Math.random() * 2);
+        var row;
+        var col;
+
+        if (direction === 1) {
+            //Сгенерировать начальную позицию для горизонтального корабля
+            row = Math.floor(Math.random * this.boardSize); //горизонтальный корабль может располагаться в любой строке
+            col = Math.floor(Math.random() * (this.boardSize - this.shipLength)); //чтобы начальный столбец всегда лежал в диапазоне от 0 до 4
+        } else {
+            //Сгенерировать начальную позицию для вертикального корабля
+            row = Math.floor(Math.random() * (this.boardSize - this.shipLength));
+            col = Math.floor(Math.random() * this.boardSize);
+        }
+
+        var newShipLocations = [];//набор позиций нового корабля начинается с пустого массива, в который последовательно добавляются элементы
+        for (var i = 0; i < this.shipLength; i++) {
+            if (direction === 1) {
+                //Добавить в массив для горизонтального корабля
+                newShipLocations.push(row + "" + (col + i));
+            } else {
+                //Добавить в массив для вертикального корабля
+                newShipLocations.push((row + i) + "" + col);
+            }
+        }
+        return newShipLocations;
     }
 };
 
