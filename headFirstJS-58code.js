@@ -24,9 +24,9 @@ var model = {
     shipsSunk: 0, //количество попаданий
 
     ships: [ //Информация о местоположении кораблей(локация и информация о попадании)
-        {locations: ["06", "16", "26"], hits: ["", "", ""]},
-        {locations: ["24", "34", "44"], hits: ["", "", ""]},
-        {locations: ["10", "11", "12"], hits: ["", "", ""]}
+        {locations: ["0", "0", "0"], hits: ["", "", ""]},
+        {locations: ["0", "0", "0"], hits: ["", "", ""]},
+        {locations: ["0", "0", "0"], hits: ["", "", ""]}
     ],
 
     fire: function (guess) { //получаем координаты выстрела
@@ -169,6 +169,8 @@ function init() {
    
     var guessInput = document.getElementById("guessInput");//сохраним в переменной ссылку на объект поле ввода
     guessInput.onkeydown = handleKeyPress; //вызвать функцию-обработчик события при нажатии кнопки  на поле ввода
+
+    model.generateShipLocations();
 
 }
 
