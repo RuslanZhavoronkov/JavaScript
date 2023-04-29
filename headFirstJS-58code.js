@@ -4,15 +4,16 @@ var view = {
         var messageArea = document.getElementById("messageArea");
         messageArea.innerHTML = msg;
     },
-
-    displayHit: function(location) {
-        var cell = document.getElementById(location);
-        cell.setAttribute("class", "hit");
+    //Функции, рисующей корабль в ячейке передается позиция (id) ячейки
+    displayHit: function(location) {  //Если человек подбил корабль. В ячейке появляется корабль,т.к.
+        var cell = document.getElementById(location);// ячейки с id равной переданому аргументу
+        cell.setAttribute("class", "hit");//объекту-ячейке присваивается класс "hit" с фоновым изображением корабля
     },
 
+    //Функции, рисующей надпись промах в ячейке передается позиция (id) ячейки 
     displayMiss: function(location) {
         var cell = document.getElementById(location);
-        cell.setAttribute("class", "miss");
+        cell.setAttribute("class", "miss"); //объекту-ячейке присваивается класс "miss" с фоновым изображением надписи "MISS"
     }
 }
 
@@ -30,7 +31,7 @@ var model = {
     ],
 
     fire: function (guess) { //получаем координаты выстрела
-        for (var i = 0; i < this.numShips; i++) { //Перебираем массив ships, последовательно, проверяя каждый корабль
+        for (var i = 0; i < this.numShips; i++) { //Перебираем массив ships, последовательно, проверяя каждый корабль-объект
             var ship = this.ships[i]; //Получаем объект ship
             var index = ship.locations.indexOf(guess); //Затем индекс клетки в locations(Метод indexOf ищет в массиве указанное значение и возвращает его индекс (или -1 если значение отсутствует в массиве))
             if (index >= 0) {              //Если координаты клетки присуствуют в массиве locations, значит выстрел попал в цель
@@ -50,7 +51,7 @@ var model = {
     },
 
     //Метод проверяет потоплен ли кораблль или нет
-    isSunk: function (ship) {
+    isSunk: function (ship) { //Перебираем массив hit объекта-корабляронт
         for (var i = 0; i < this.shipLength; i++) {
             if (ship.hits[i] !== "hit") { //Если есть хотя бы одна клетка, в которую еще не попал игрок, то корабль еще не потоплен (возвращает false)
                 return false;
@@ -59,7 +60,7 @@ var model = {
         return true; //А если нет-корабль потоплен! Метод возвращает true
     },
 
-    //Метод, создающий массив кораблей с количеством this.numShips
+    //Метод, создающий три массива locations объектов-кораблей со случайным набором позиций
     generateShipLocations: function() {
         var locations;
         for (var i = 0; i < this.numShips; i++) {
@@ -125,7 +126,7 @@ function parseGuess (guess) {
         var firstChar = guess.charAt(0); //Сохраняем первый символ guess (Буква) в переменной firstChar
         var row = alphabet.indexOf(firstChar); //Передаем первый сивол букву методу indexOf массива alphabet и получаем  цифру-индекс и сохр. в перем. row
 
-        var column = guess.charAt(1); //сохраняем вторую "цифру"(строковое значение) в переменной column
+        var column = guess.charAt(1); //сохраняем вторую цифру в переменной column
 
 
         if (isNaN(row) || isNaN(column)) {
@@ -146,7 +147,7 @@ var controller = {
     guesses: 0, //колличество выстрелов
 
     processGuess: function(guess) { //Метод получает координаты в формате "A0"
-        var location = parseGuess(guess); //будем использовать вспомогательную функцию parseGuess для проверки введенных данных
+        var location = parseGuess(guess); //будем использовать вспомогательную функцию parseGuess для проверки введенных данных и пребразов. данных в числочисло
         if (location) {
             this.guesses++;
             var hit = model.fire(location); //передаем методу fire объекта модель аргумент-координата выстрела location
@@ -187,7 +188,7 @@ function handleFireButton() {   //Функция-обработчик событ
 //Создадим функцию-обработчик события при нажатии кнопки enter на поле ввода
 function handleKeyPress(e) { //Браузер передает объект-события обработчику. Объект содержит информацию какая клавиша была нажата
     var fireButton = document.getElementById("fireButton");
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13) { //Свойство-объекта события
         fireButton.click();//Вызов метода click() кнопки fireButton(фактически этот вызов имитирует нажатие кнопки fireButton)  
         return false; //чтобы форма не делала ничего лишнего
     }
