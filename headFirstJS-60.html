@@ -19,15 +19,16 @@
         window.onload = init;
 
         function init() {
-            var images = document.getElementsByTagName("img");//получаем список-массив из элементов-объектов изображений
+            var images = document.getElementsByTagName("img");//сохраняем в переменной объект Node List(коллекция узлов элементов-объектов(как массив объектов))
             for(var i = 0; i < images.length; i++) {
-                images[i].onclick = showAnswer;
+                images[i].onclick = showAnswer; //перебираем все изображения и поочередно назначаем обработчик события щелчка showAnswer каждому изображению
             }
         }
 
-        function showAnswer() {
-                var image = document.getElementById("zero");
-                image.src = "zero.jpg";
+        function showAnswer(eventObj) {
+                var image = eventObj.target; //получаем информацию об источнике события (элементе-объекте события).Получаем элемент-объект(изображение)
+                var nameImageFail = image.id + ".jpg";
+                image.src = nameImageFail; 
                 /*image.setAttribute("src", "zero.jpg");*/
         }
 
