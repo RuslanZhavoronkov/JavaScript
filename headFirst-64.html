@@ -21,7 +21,8 @@
         function init() {
             var images = document.getElementsByTagName("img");//сохраняем в переменной объект Node List(коллекция узлов элементов-объектов(как массив объектов))
             for(var i = 0; i < images.length; i++) {
-                images[i].onclick = showAnswer; //перебираем все изображения и поочередно назначаем обработчик события щелчка showAnswer каждому изображению
+                images[i].onmouseover = showAnswer; //перебираем все изображения и поочередно назначаем обработчик события наведения мыши showAnswer каждому изображению
+                images[i].onmouseout = reblur; //назначаем обработчик события о выходе указателя мыши за границы элементов
             }
         }
 
@@ -31,11 +32,12 @@
                 var nameImageFail = image.id + ".jpg";
                 image.src = nameImageFail; // меняем ссылку на нормальное изображение
 
-                setTimeout(reblur, 2000, image); //через 2 секунды запускается обработчик события таймера reblur, которому передано нормальное изображение 
+               
                 
         }
 
-        function reblur(image) {  //передаем нормальное изображение
+        function reblur(eventObj) {  //теперь reblur обработчик события DOM. События DOM генерируют объект событие.Функции reblur передается объект события
+            var image = eventObj.target;
             var name = image.id;
             name = name + "blur.jpg";
             image.src = name; // меняем ссылку и получаем размытое изображение
