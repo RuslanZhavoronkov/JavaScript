@@ -15,7 +15,10 @@
                 }
             }
 
-            setInterval(ticker, 1000);
+            var t = setInterval(ticker, 1000);//каждую секунду функция setInterval вызывает обработчик ticker. setInterval генерирует событие при срабатывании таймера
+                                       // потом перезагружает таймер
+            clearInterval(t);// остановить таймер
+
 
         </script>
     </head>
