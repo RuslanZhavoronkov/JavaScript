@@ -12,9 +12,8 @@ function quack (num) {                //Объявление функции. С�
     }
 }
 
-if (migrating) {
-    quack(4);
-    fly(4);
-    
-    
-}
+var superFly = fly;
+superFly(2);
+
+var superQuack = quack;
+superQuack(3);
