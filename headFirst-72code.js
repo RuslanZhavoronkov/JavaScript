@@ -25,4 +25,4 @@ function echoMaker() {
 
 var bigFun = echoMaker(); //возвращается переменная fun, содержащая ссылку на функцию
 
-bigFun("Is there an echo?");
+bigFun("Is there an echo?");// Is there an echo
