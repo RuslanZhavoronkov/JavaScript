@@ -36,3 +36,18 @@ var allPaid = processPassengers(passengers, checkNotPaid); //Здесь функ
 if(!allPaid) {
     console.log("The plane can't take off: not everyone has paid.");
 }
+
+function printPassenger (passenger) {
+    var namePassenger = passenger.name;
+    var infoPaid = passenger.paid;
+
+    if (infoPaid) {
+        console.log (namePassenger + " has paid")
+    } else {
+        console.log (namePassenger + " has not paid");
+    }
+
+    return false;
+}
+
+processPassengers(passengers, printPassenger);

@@ -34,5 +34,20 @@ if (!allCanFly) {
 
 var allPaid = processPassengers(passengers, checkNotPaid); //Здесь функция processPassengers проверяет каждого пассажира на оплату билета
 if(!allPaid) {
-    console.log("The plan can't take off: not everyone has paid.");
+    console.log("The plane can't take off: not everyone has paid.");
 }
+
+function printPassenger (passenger) {
+    var namePassenger = passenger.name;
+    var infoPaid = passenger.paid;
+
+    if (infoPaid) {
+        console.log (namePassenger + " paid")
+    } else {
+        console.log (namePassenger + " not paid");
+    }
+
+    return false;
+}
+
+processPassengers(passengers, printPassenger);
