@@ -1,4 +1,4 @@
-function sayIt(translator) {
+function sayIt(translator) {          //функция, принимающая в параметр другую функцию
     var phrase = translator("Hello");
     console.log(phrase);
 }
