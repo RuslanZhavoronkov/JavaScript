@@ -1,49 +1,12 @@
-var passengers = [
-    {name: "Jane Dooloop", paid: true, ticket: "coach"},
-    {name: "Dr. Evel", paid: true, ticket: "firstclass"},
-    {name: "Sue Property", paid: false, ticket: "firstclass"},
-    {name: "John Funcall", paid: true, ticket: "coach"}
-];
-
-function serveCustomer(passenger) { //Операции, выполняемые стюардесами для обслуживания пассажиров
-//Предложить напитки
-var getDrinkOrderFunction = createDrinkOrder(passenger);//сохраняет переменную с функцией, вернувшейся из функции createDrinkOrder
-getDrinkOrderFunction();  //вызываем функцию предложения напитков от пассажиров
-
-//Предложить обед
-getDrinkOrderFunction();
-getDrinkOrderFunction();
-
-//Включить кино
-getDrinkOrderFunction();
-
-}  
-
-
-//Напишем функцию предложения напитков в зависимости от класса купленного билета
-function createDrinkOrder(passenger) {
-    var orderFunction; //Создается переменная для хранения функции, которую мы возвращаем  в зависимости от класса купленного билета
-    
-    if (passenger.ticket === "firstclass") {  //Если билет первого класса, то переменная orderFunction содержит такую функцию
-        orderFunction = function () {
-            console.log ("Would you like a coctail or wine");
-        }
-    } else {  //Если билет другого класса, то переменная orderFunction содержит такую функцию
-        orderFunction = function () {
-            console.log ("Your choice is a cola or water.");
-        }
+function addN(n) {
+    var adder = function (x) {
+        return n + x;
     }
-
-    return orderFunction; //возвращаем переменную, содержащую функцию в зависимости от купленного билета
-
+    return adder;
 }
 
-//Напишем функцию которая перебирает всех пассажиров
-function servePassengers (passengers) {
-    for (var i = 0; i < passengers.length; i++) {
-        serveCustomer(passengers[i]);//операции выполняемые стюардесами для обслуживания клиентов
-    } 
-}
+var add2 = addN(5); //Возвращается adder(n=5)
+console.log(add2(10));//Вызываем функцию adder(10)
+console.log(add2(100)); //Вызываем функцию adder(100)
 
-servePassengers(passengers);
-
+//Функция addN(n) возвращает функцию adder
