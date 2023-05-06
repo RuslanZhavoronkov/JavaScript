@@ -30,4 +30,4 @@ function compareSold (colaA, colaB) { //функция принимает два
 
 //применим метод sort к массиву products для сортировки объетов массива по свойству sold в порядке возрастания
 products.sort(compareSold);
-console.log(products);
+console.log(products);//супер
