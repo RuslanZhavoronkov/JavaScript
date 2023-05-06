@@ -34,6 +34,49 @@ function printProducts(products) {
     }
 }
 
+//Напишем функцию-сравнения для свойств-имен объектов массива
+function compareName (colaA, colaB) {
+    if (colaA.name > colaB.name) {
+        return 1; //объекты нужно поменять местами
+    } else if (colaA.name === colaB.name) {
+        return 0;
+    } else {
+        return -1;
+    }
+}
+
+//Напишем функцию-сравнения для свойств calories объектов массива
+function compareCalories (colaA, colaB) {
+    return colaA.calories - colaB.calories;
+}
+
+//Напишем функцию-сравнения свойств color объектов массива
+function compareColor (colaA, colaB) {
+    if (colaA.color > colaB.color) {
+        return 1;
+    } else if (colaA.color === colaB.color) {
+        return 0;
+    } else {
+        return -1;
+    }
+}
+
+
 //применим метод sort к массиву products для сортировки объетов массива по свойству sold в порядке возрастания
-products.sort(compareSold);
-printProducts (products);
+/*products.sort(compareSold);
+printProducts (products);*/
+
+//Применим метод sort к массиву products для сортировки объектов по свойству name
+products.sort(compareName);
+console.log ("Products sorted by name: ");
+printProducts(products);
+
+//Применим метод sort к массиву products для сортировки объектов массива по свойству calories
+products.sort(compareCalories);
+console.log ("Products sorted by calories: ");
+printProducts(products); 
+
+//Применим метод sort к массиву для сортивки объектов массива по свойству color
+products.sort(compareColor);
+console.log("Products sorted by color: ");
+printProducts(products); 
