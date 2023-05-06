@@ -25,9 +25,15 @@ function compareSold (colaA, colaB) { //функция принимает два
     }*/
 
     //Сократим код функции-сравнения
-        return colaA.sold -colaB.sold; // Если возращается больше 0б то надо переставлять(менять объекты местами) (по возрастанию)
+        return colaA.sold - colaB.sold; // Если возращается больше 0б то надо переставлять(менять объекты местами) (по возрастанию)
+}
+
+function printProducts(products) {
+    for (var i = 0; i < products.length; i++) {
+        console.log ("Name: " + products[i].name + ", Calories: " + products[i].calories + ", Color: " + products[i].color + ", Sold: " + products[i].sold);
+    }
 }
 
 //применим метод sort к массиву products для сортировки объетов массива по свойству sold в порядке возрастания
 products.sort(compareSold);
-console.log(products);//супер
+printProducts (products);
