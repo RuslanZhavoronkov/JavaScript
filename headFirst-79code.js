@@ -5,7 +5,7 @@ if (migrating) {
     fly(4);// ошибка, потому что функция fly еще не определена
 }
 
-function fly(num) {
+var fly = function (num) {
     for (var i = 0; i < num; i++) {
         console.log ("Flying!");
     }
