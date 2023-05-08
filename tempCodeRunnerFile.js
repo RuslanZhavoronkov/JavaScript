@@ -1,14 +1,15 @@
-var secret = "007";
+var justAVar = "Oh, don't you worry about it, I'm GLOBAL";
 
-function getSecret() {
-    var secret = "008";
+function whereAreYou() {
+    var justAVar = "Just an every day LOCAL";
 
-    function getValue() {
-        return secret;
+    function inner() {
+        return justAVar;
     }
 
-    return getValue; //Возвращаем переменную, содержащую функцию 
+    return inner; //Возвращаем переменную justAVar, содержащую внутреннюю функцию 
 }
 
-var getValueFun = getSecret();
-console.log (getValueFun());
+var innerFunction = whereAreYou(); //Возвращается переменная inner, содержащая функцию внутренную функцию 
+var result = innerFunction();
+console.log(result);
