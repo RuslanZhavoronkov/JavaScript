@@ -1,15 +1,15 @@
-var justAVar = "Oh, don't you worry about it, I'm GLOBAL";
+function makeCounter () {
+    var count = 0;
 
-function whereAreYou() {
-    var justAVar = "Just an every day LOCAL";
-
-    function inner() {
-        return justAVar;
+    function counter () {
+        count = count + 1;
+        return count;
     }
 
-    return inner; //Возвращаем переменную justAVar, содержащую внутреннюю функцию 
+    return counter; //возвращаем функцию counter (переменную counter со ссылкой на функцию)
 }
 
-var innerFunction = whereAreYou(); //Возвращается переменная inner, содержащая функцию внутренную функцию 
-var result = innerFunction();
-console.log(result);
+var doCount = makeCounter(); //возвращаем функцию counter (переменную counter со ссылкой на функцию)
+console.log(doCount());
+console.log(doCount());
+console.log(doCount());
