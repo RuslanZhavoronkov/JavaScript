@@ -1,15 +1,12 @@
-function makeCounter () {
-    var count = 0;
+//Функция makePassword получает пароль в аргументе и возвращает функцию,
+//которая принимает введенную строку и возвращает true, если введенная строка совпадает с паролем
 
-    function counter () {
-        count = count + 1;
-        return count;
+function makePassword (password) {
+    return function guess (passwordGuess) { 
+        return (passwordGuess === password);
     }
-
-    return counter; //возвращаем функцию counter (переменную counter со ссылкой на функцию)
 }
 
-var doCount = makeCounter(); //возвращаем функцию counter (переменную counter со ссылкой на функцию)
-console.log(doCount());
-console.log(doCount());
-console.log(doCount());
+var tryGuess = makePassword ("secret"); //возвращается  функция guess
+console.log("Guessing 'nope': " + tryGuess("nope"));
+console.log("Guessing 'secret': " + tryGuess("secret"));
