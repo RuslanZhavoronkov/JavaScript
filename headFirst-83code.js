@@ -3,13 +3,13 @@
 
 function multN(n) {
     function multM(m) {
-        return m * n;
+        return m * n; //переменная m - локальная, переменная n - свободная(не определяется в этой функции)
     }
 
     return multM;
 }
 
-var numbers = multN(5);
+var numbers = multN(5);//получается зымыкание(возвращается функция multM + окружение со свободной переменной n)
 
 console.log(numbers(5));
 console.log(numbers(2));
