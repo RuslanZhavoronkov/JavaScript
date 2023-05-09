@@ -1,8 +1,13 @@
-function makeTimer (doneMessage, n) {
-    setTimeout(function () {   //Метод setTimeout сохраняет функцию со свободным окружением (со свободной переменной doneMessage) 
-        console.log (doneMessage);
-    }, 1000);
+function handler() {
+    console.log(doneMessage);
 }
 
-makeTimer("Cookies are done", 1000); //происходит замыкание в методе setTimeout, потому что вместе с функцией передается окружение,
-                                    //связывающее свободную переменную doneMessage со строкой "Cookies are done"
+
+function makeTimer (doneMessage, n) {    
+    setTimeout(function() {
+        console.log(doneMessage);
+    }, n);
+}
+
+
+makeTimer("Cookies are done", 1000);
