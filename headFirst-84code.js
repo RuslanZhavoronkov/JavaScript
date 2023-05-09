@@ -19,3 +19,5 @@ console.log (result.increment());
 console.log(result.increment()); //вызываем метод. Метод обращается к переменной count в своем окружении
 console.log(result.increment());
 console.log (result.increment());
+console.log(result.increment());
+console.log (result.increment());
