@@ -14,7 +14,7 @@
         </style>
         <script>
             //Пример без замыкания
-           var count = 0; // глобальная, если сделать локальной в функции handleClick(Эта переменная будет повторно инициализироваться при каждом нажатии кнопки)
+          /* var count = 0; // глобальная, если сделать локальной в функции handleClick(Эта переменная будет повторно инициализироваться при каждом нажатии кнопки)
             window.onload = function () {
                 var button = document.getElementById("clickme");
                 button.onclick = handleClick;
@@ -25,6 +25,19 @@
                 var div = document.getElementById("message");
                 count++;
                 div.innerHTML = message + count + " times!";
+            }*/
+
+            //Пример с замыканием
+            window.onload = function () {
+                var count = 0;
+                var message = "You clicked me ";
+                var div = document.getElementById("message");
+                var button = document.getElementById("clickme");
+
+                button.onclick = function() {
+                    count++;
+                    div.innerHTML = message + count + " times!"
+                }
             }
 
             
