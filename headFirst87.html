@@ -28,17 +28,17 @@
             }*/
 
             //Пример с замыканием
-            window.onload = function () {
-                var count = 0;
-                var message = "You clicked me ";
-                var div = document.getElementById("message");
-                var button = document.getElementById("clickme");
+           window.onload = function() {
+            var count = 0;
+            var div = document.getElementById("message");
+            var button = document.getElementById("clickme");
+            var message = "You clicked me ";
 
-                button.onclick = function() {
-                    count++;
-                    div.innerHTML = message + count + " times!"
-                }
+            button.onclick = function () {
+                count++;
+                div.innerHTML = message + count + " times!"
             }
+           }
 
             
         </script>
