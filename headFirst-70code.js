@@ -1,5 +1,5 @@
 function sayIt(translator) {          //функция, принимающая в параметр другую функцию
-    var phrase = translator("Hello");
+    var phrase = translator("Hello");// в переменной сохраняется результат вызова новой функции с аргументом "Hello"
     console.log(phrase);
 }
 
@@ -8,4 +8,4 @@ function hawaiianTranslator (word) {
     if (word === "Goodbye") return "Aloha"
 }
 
-sayIt(hawaiianTranslator);
+sayIt(hawaiianTranslator); //Вызов функции sayIt с аргументом функцией hawaiianTranslator

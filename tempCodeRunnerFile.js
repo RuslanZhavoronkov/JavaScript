@@ -1,8 +1,20 @@
-function setTimer(doneMessage,n) {
-    setTimeout(function() {
-        console.log(doneMessage);
-    }, n)
-    doneMessage = "OUCH";
+function countBy(x, n) {
+    var z = [];
+    var numbers = n;
+    var firstNum = x;
+    z.push(firstNum);
+     while (numbers > 0) {
+     
+      if(firstNum % 2){
+       z.push(firstNum += 2);
+       numbers--;
+      } else {
+       z.push(firstNum++);
+       numbers--;
+      }
+      
+      return z;
+  }
 }
-
-setTimer("Coockies are done!", 1000);
+  
+  console.log (countBy(1, 10));

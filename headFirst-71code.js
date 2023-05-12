@@ -47,7 +47,6 @@ function printPassenger (passenger) {
         console.log (namePassenger + " has not paid");
     }
 
-    return false;
+   return false;
 }
 
-processPassengers(passengers, printPassenger);

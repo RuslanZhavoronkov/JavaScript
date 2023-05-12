@@ -8,6 +8,6 @@ function makePassword (password) {//функция возвращаемая из
 }
 
 var tryGuess = makePassword ("secret"); //Мы передаем функции makePassword значение "secret", которое сохраняется в окружении замыкания
-                                        //с
-console.log("Guessing 'nope': " + tryGuess("nope")); 
+                                        //(возвращаем функцию guess(passwordGuess и присваиваем переменной tryGuess )
+console.log("Guessing 'nope': " + tryGuess("nope")); // 
 console.log("Guessing 'secret': " + tryGuess("secret"));
