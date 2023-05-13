@@ -21,3 +21,4 @@ for (var i = 0; i < dogs.length; i++) {
     console.log ("Dog: " + dogs[i].name + " is a " + size + " " + dogs[i].breed);   
 
 }
+
