@@ -49,3 +49,4 @@ for (var i = 0; i < dogs.length; i++) {
         console.log(dogs[i].name + " is a dog!");
     }
 }
+
