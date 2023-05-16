@@ -24,3 +24,28 @@ Dog.prototype.run = function () {
 Dog.prototype.wag = function () {
     console.log ("Wag!");
 };
+
+//Создадим объекты собак с помощью конструктора Dog
+var fido = new Dog ("Fido", "Mixed", 38);
+var fluffy = new Dog ("Fluffy", "Poodle", 30);
+
+var spot = new Dog ("Spot", "Chihuahua", 10);
+//Переопределение унаследованного метода bark от прототипа конструктора Dog
+spot.bark = function () {
+    console.log (this.name + " says WOOF!");
+}
+
+fido.bark();
+fido.run();
+fido.wag();
+console.log (fido.species);
+
+fluffy.bark();
+fluffy.run();
+fluffy.wag();
+console.log (fido.species);
+
+spot.bark();
+spot.run();
+spot.wag();
+console.log (fido.species);
