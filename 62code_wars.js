@@ -12,4 +12,4 @@ function getGrade (s1, s2, s3) {
     } else if (midNum >= 0 && midNum <= 60) {
       return "F";
     }
-  }
+  } //возвращает среднее число
