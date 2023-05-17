@@ -25,15 +25,20 @@ Dog.prototype.wag = function () {
     console.log ("Wag!");
 };
 
+Dog.prototype.sit = function () {
+    console.log (this.name + " is now sitting");
+};
+
 //Создадим объекты собак с помощью конструктора Dog
 var fido = new Dog ("Fido", "Mixed", 38);
 var fluffy = new Dog ("Fluffy", "Poodle", 30);
+var barnaby = new Dog ("Barnaby", "Basset Hound", 55);
 
 var spot = new Dog ("Spot", "Chihuahua", 10);
 //Переопределение унаследованного метода bark от прототипа конструктора Dog
 spot.bark = function () {
     console.log (this.name + " says WOOF!");
-}
+};
 
 fido.bark();
 fido.run();
@@ -49,3 +54,5 @@ spot.bark();
 spot.run();
 spot.wag();
 console.log (fido.species);
+
+barnaby.sit();//Вызываем метод хранящийся в прототипе Dog для объекта barnaby
