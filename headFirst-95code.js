@@ -26,8 +26,17 @@ Dog.prototype.wag = function () {
 };
 
 Dog.prototype.sit = function () {
-    console.log (this.name + " is now sitting");
+    if (this.sitting) {
+        console.log (this.name + " is already sitting"); //Собака уже сидит
+    } else {
+        this.sitting = true; //происходит переопределение прототипа, а значение задается в экземпляре. Экзепляр теперь имеет собственное свойство sitting = true
+        console.log (this.name + " is now sitting");
+    }
+   
 };
+
+Dog.prototype.sitting = false;
+
 
 //Создадим объекты собак с помощью конструктора Dog
 var fido = new Dog ("Fido", "Mixed", 38);
@@ -56,3 +65,7 @@ spot.wag();
 console.log (fido.species);
 
 barnaby.sit();//Вызываем метод хранящийся в прототипе Dog для объекта barnaby
+barnaby.sit();
+
+spot.sit();
+spot.sit();
