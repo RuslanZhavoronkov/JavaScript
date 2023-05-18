@@ -1,33 +1,127 @@
-//Создадим конструктор
-function Robot (name, year, owner) {
+//Создадим конструктор Dog объектов собак
+function Dog (name, breed, weight) {
     this.name = name;
-    this.year = year;
-    this.owner = owner;
+    this.breed = breed;
+    this.weight = weight;
 }
 
-//Настроим прототип конструктора робота Robot
-Robot.prototype.maker = "ObjectsRus";
-Robot.prototype.errorMessage = "All system go.";
+//Настроим прототип конструктора Dog. Мы хотим, чтобы он содержал свойство species и методы bark, run, wag
+Dog.prototype.species = "Canine"; //Добавим свойство species в прототип конструктора Dog
 
-Robot.prototype.reportError = function () {
-    console.log (this.name + " says " + this.errorMessage);
+//Добавим методы в прототип конструктора Dog
+Dog.prototype.bark = function() {
+    if (this.weight > 25) {
+        console.log (this.name + " says Woof!");
+    } else {
+        console.log (this.name + " says Yip!");
+    }
 };
 
-Robot.prototype.spillWater = function () {
-    this.errorMessage = "I appear to have a short circuit!";
+Dog.prototype.run = function () {
+    console.log ("Run!");
 };
 
-//Создадим объекты роботов с помощью конструктора Robot
-var robby = new Robot ("Robby", 1956, "Dr. Morbius");
-var rosie = new Robot ("Rosie", 1962, "George Jetson");
+Dog.prototype.wag = function () {
+    console.log ("Wag!");
+};
 
-rosie.reportError();//Вызываем метод прототипа и добавляем этим методом свойство errorMessage="All system go" объекту rosie
-robby.reportError();//Вызываем метод прототипа и добавляем этим методом свойство errorMessage="All system go" объекту robby
+Dog.prototype.sit = function () {
+    if (this.sitting) {
+        console.log (this.name + " is already sitting"); //Собака уже сидит
+    } else {
+        this.sitting = true; //происходит переопределение свойства прототипа, а значение задается в экземпляре. Экземпляр теперь имеет собственное свойство sitting = true
+        console.log (this.name + " is now sitting");
+    }
+   
+};
 
-robby.spillWater();//Вызываем метод прототипа и изменяем значение уже ранее добавленного свойства errorMessage="I appear to have a short circuit!"
+Dog.prototype.sitting = false;
 
-rosie.reportError();//Вызываем метод прототипа, но используем уже добавленное в экземпляр-rosie свойство errorMessage="All system go"
-robby.reportError();//вызываем метод прототипа, но используем уже добавленное в экземпляр-robby свойство errorMessage="I appear to have a short circuit!"
+//Создадим конструктор выставочной собаки ShowDog
+function ShowDog (name, breed, weight, handler) {
+    this.name = name;
+    this.breed = breed;
+    this.weight = weight;
+    this.handler = handler;
+}
 
-console.log (robby.hasOwnProperty("errorMessage"));
-console.log (rosie.hasOwnProperty("errorMessage"));
+//Создадим новый пустой объект собаки с помощью конструктора Dog и присвоим его - прототипу конструктора выставочной собаки ShowDog
+ShowDog.prototype = new Dog();
+
+//Настроим новый прототип конструктора ShowDog(являющийся пустым экземпляром конструктора Dog)
+ShowDog.prototype.league = "Webville";
+
+ShowDog.prototype.stack = function() {
+    console.log ("Stack");
+};
+
+ShowDog.prototype.bait = function() {
+    console.log ("Bait");
+};
+
+ShowDog.prototype.gait = function(kind) {
+    console.log (kind + "ing");
+};
+
+ShowDog.prototype.groom = function() {
+    console.log ("Groom"); 
+};
+
+//Создадим объект выставочной собаки с помощью конструктора ShowDog
+var scotty = new ShowDog ("Scotty", "Scottish Terrier", 15, "Cookie");
+
+
+
+//Создадим объекты собак с помощью конструктора Dog
+var fido = new Dog ("Fido", "Mixed", 38);
+var fluffy = new Dog ("Fluffy", "Poodle", 30);
+var barnaby = new Dog ("Barnaby", "Basset Hound", 55);
+
+var spot = new Dog ("Spot", "Chihuahua", 10);
+//Переопределение унаследованного метода bark от прототипа конструктора Dog
+spot.bark = function () {
+    console.log (this.name + " says WOOF!");
+};
+
+
+
+
+
+fido.bark();
+fido.run();
+fido.wag();
+console.log (fido.species);
+
+fluffy.bark();
+fluffy.run();
+fluffy.wag();
+console.log (fido.species);
+
+spot.bark();
+spot.run();
+spot.wag();
+console.log (fido.species);
+
+barnaby.sit();//Вызываем метод хранящийся в прототипе Dog для объекта barnaby
+barnaby.sit();
+
+spot.sit();
+spot.sit();
+
+console.log (spot.hasOwnProperty("sitting"));
+
+console.log (spot.hasOwnProperty("species"));
+console.log (fido.hasOwnProperty("species"));
+
+console.log (fido.hasOwnProperty("sitting"));
+
+fido.sit();
+console.log(fido.hasOwnProperty("sitting"));
+
+
+scotty.stack(); //Вызовем метод из прототипа конструктора ShowDog
+scotty.bark(); //Вызовем метод из прототипа конструктора Dog
+
+console.log (scotty.league); //вызываем свойство прототипа ShowDog
+console.log (scotty.species); //вызываем свойство прототипа Dog
+

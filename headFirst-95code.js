@@ -5,7 +5,7 @@ function Dog (name, breed, weight) {
     this.weight = weight;
 }
 
-//Настроим прототип конструктора. Мы хотим, чтобы он содержал свойство species и методы bark, run, wag
+//Настроим прототип конструктора Dog. Мы хотим, чтобы он содержал свойство species и методы bark, run, wag
 Dog.prototype.species = "Canine"; //Добавим свойство species в прототип конструктора Dog
 
 //Добавим методы в прототип конструктора Dog
@@ -37,6 +37,40 @@ Dog.prototype.sit = function () {
 
 Dog.prototype.sitting = false;
 
+//Создадим конструктор выставочной собаки ShowDog
+function ShowDog (name, breed, weight, handler) {
+    this.name = name;
+    this.breed = breed;
+    this.weight = weight;
+    this.handler = handler;
+}
+
+//Создадим новый пустой объект собаки с помощью конструктора Dog и присвоим его - прототипу конструктора выставочной собаки ShowDog
+ShowDog.prototype = new Dog();
+
+//Настроим новый прототип конструктора ShowDog(являющийся пустым экземпляром конструктора Dog)
+ShowDog.prototype.league = "Webville";
+
+ShowDog.prototype.stack = function() {
+    console.log ("Stack");
+};
+
+ShowDog.prototype.bait = function() {
+    console.log ("Bait");
+};
+
+ShowDog.prototype.gait = function(kind) {
+    console.log (kind + "ing");
+};
+
+ShowDog.prototype.groom = function() {
+    console.log ("Groom"); 
+};
+
+//Создадим объект выставочной собаки с помощью конструктора ShowDog
+var scotty = new ShowDog ("Scotty", "Scottish Terrier", 15, "Cookie");
+
+
 
 //Создадим объекты собак с помощью конструктора Dog
 var fido = new Dog ("Fido", "Mixed", 38);
@@ -48,6 +82,10 @@ var spot = new Dog ("Spot", "Chihuahua", 10);
 spot.bark = function () {
     console.log (this.name + " says WOOF!");
 };
+
+
+
+
 
 fido.bark();
 fido.run();
@@ -79,3 +117,11 @@ console.log (fido.hasOwnProperty("sitting"));
 
 fido.sit();
 console.log(fido.hasOwnProperty("sitting"));
+
+
+scotty.stack(); //Вызовем метод из прототипа конструктора ShowDog
+scotty.bark(); //Вызовем метод из прототипа конструктора Dog
+
+console.log (scotty.league); //вызываем свойство прототипа ShowDog
+console.log (scotty.species); //вызываем свойство прототипа Dog
+
