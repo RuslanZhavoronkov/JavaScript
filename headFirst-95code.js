@@ -29,7 +29,7 @@ Dog.prototype.sit = function () {
     if (this.sitting) {
         console.log (this.name + " is already sitting"); //Собака уже сидит
     } else {
-        this.sitting = true; //происходит переопределение прототипа, а значение задается в экземпляре. Экзепляр теперь имеет собственное свойство sitting = true
+        this.sitting = true; //происходит переопределение свойства прототипа, а значение задается в экземпляре. Экземпляр теперь имеет собственное свойство sitting = true
         console.log (this.name + " is now sitting");
     }
    
@@ -69,3 +69,13 @@ barnaby.sit();
 
 spot.sit();
 spot.sit();
+
+console.log (spot.hasOwnProperty("sitting"));
+
+console.log (spot.hasOwnProperty("species"));
+console.log (fido.hasOwnProperty("species"));
+
+console.log (fido.hasOwnProperty("sitting"));
+
+fido.sit();
+console.log(fido.hasOwnProperty("sitting"));
