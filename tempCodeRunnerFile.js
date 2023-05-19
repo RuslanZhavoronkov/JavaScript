@@ -1,127 +1,78 @@
-//Создадим конструктор Dog объектов собак
-function Dog (name, breed, weight) {
-    this.name = name;
-    this.breed = breed;
-    this.weight = weight;
+//Создадим базовый конструктор Robot объектов-роботов
+function Robot (name, year, owner) {
+this.name = name;
+this.year = year;
+this.owner = owner;
 }
 
-//Настроим прототип конструктора Dog. Мы хотим, чтобы он содержал свойство species и методы bark, run, wag
-Dog.prototype.species = "Canine"; //Добавим свойство species в прототип конструктора Dog
+//настроим прототип конструктора Robot
+Robot.prototype.maker = "ObjectsRUs";
 
-//Добавим методы в прототип конструктора Dog
-Dog.prototype.bark = function() {
-    if (this.weight > 25) {
-        console.log (this.name + " says Woof!");
-    } else {
-        console.log (this.name + " says Yip!");
-    }
+Robot.prototype.speak = function () {
+    console.log ("I'm a robot");
 };
 
-Dog.prototype.run = function () {
-    console.log ("Run!");
+Robot.prototype.makeCoffee = function () {
+    console.log ("I make coffee for you");
 };
 
-Dog.prototype.wag = function () {
-    console.log ("Wag!");
+Robot.prototype.blinkLights = function () {
+    console.log ("I can turn on the light for you");
 };
 
-Dog.prototype.sit = function () {
-    if (this.sitting) {
-        console.log (this.name + " is already sitting"); //Собака уже сидит
-    } else {
-        this.sitting = true; //происходит переопределение свойства прототипа, а значение задается в экземпляре. Экземпляр теперь имеет собственное свойство sitting = true
-        console.log (this.name + " is now sitting");
-    }
-   
-};
-
-Dog.prototype.sitting = false;
-
-//Создадим конструктор выставочной собаки ShowDog
-function ShowDog (name, breed, weight, handler) {
+//Создадим конструктор новой модели роботов SpaceRobot
+function SpaceRobot (name, year, owner, homePlanet) {
     this.name = name;
-    this.breed = breed;
-    this.weight = weight;
-    this.handler = handler;
+    this.year = year;
+    this.owner = owner;
+    this.homePlanet = homePlanet;
 }
 
-//Создадим новый пустой объект собаки с помощью конструктора Dog и присвоим его - прототипу конструктора выставочной собаки ShowDog
-ShowDog.prototype = new Dog();
+//Создадим прототип конструктора SpaceRobot (являющийся пустым экземпляром(объектом) конструктора Robot)- Создадим цепочку прототипов
+SpaceRobot.prototype = new Robot();
 
-//Настроим новый прототип конструктора ShowDog(являющийся пустым экземпляром конструктора Dog)
-ShowDog.prototype.league = "Webville";
-
-ShowDog.prototype.stack = function() {
-    console.log ("Stack");
+//Настроим прототип конструктора SpaceRobot
+SpaceRobot.prototype.speak = function () {
+    console.log (this.name + " says Sir, If I may venture an option ...");
 };
 
-ShowDog.prototype.bait = function() {
-    console.log ("Bait");
+SpaceRobot.prototype.pilot = function () {
+    console.log (this.name + " says Thrusters? Are they important?");
 };
 
-ShowDog.prototype.gait = function(kind) {
-    console.log (kind + "ing");
+//Создадим объекты - экземпляры космических роботов SpaceRobot
+var c3po = new SpaceRobot ("C3PO", 1977, "Luke Skywalker", "Tatooine");
+var simon = new SpaceRobot ("Simon", 2009, "Carla Diana", "Earth");
+
+
+//Содадим объекты-экземпляры конструктора Robot
+var robby = new Robot ("Robby", 1956, "Dr. Morbius");
+var rosie = new Robot ("Rosie", 1962, "George Jetson");
+
+//настройка объекта robby (экземпляра конструктора Robot)
+robby.onOffSwitch = true; //Добавление нового свойства объекту роботу robby
+robby.makeCoffee = function () {     //Переопределение метода makeCoffee
+    console.log ("I run to Starbucks for coffee");
 };
 
-ShowDog.prototype.groom = function() {
-    console.log ("Groom"); 
+//настройка объекта rosie (экземпляра конструктора Robot)
+rosie.cleanHouse = function () {
+    console.log ("I can do the house cleaning");
 };
 
-//Создадим объект выставочной собаки с помощью конструктора ShowDog
-var scotty = new ShowDog ("Scotty", "Scottish Terrier", 15, "Cookie");
+console.log (robby.name + " was made by " + robby.maker + " in " + robby.year + " and is owned by " + robby.owner);
+robby.makeCoffee(); //переопределенное свойство-метод экземпляра объекта
+robby.blinkLights(); //свойство-метод, хранящийся в прототипе Robot
+
+console.log (rosie.name + " was made by " + rosie.maker + " in " + rosie.year + " and is owned by " + rosie.owner);
+rosie.cleanHouse();
 
 
+c3po.speak();//из прототипа конструктора SpaceRobot (переопределенной свойство прототипа конструктора Robot)
+c3po.pilot(); //метод прототипа конструктора SpaceRobot
+console.log (c3po.name + " was made by " + c3po.maker);
 
-//Создадим объекты собак с помощью конструктора Dog
-var fido = new Dog ("Fido", "Mixed", 38);
-var fluffy = new Dog ("Fluffy", "Poodle", 30);
-var barnaby = new Dog ("Barnaby", "Basset Hound", 55);
-
-var spot = new Dog ("Spot", "Chihuahua", 10);
-//Переопределение унаследованного метода bark от прототипа конструктора Dog
-spot.bark = function () {
-    console.log (this.name + " says WOOF!");
-};
-
-
-
-
-
-fido.bark();
-fido.run();
-fido.wag();
-console.log (fido.species);
-
-fluffy.bark();
-fluffy.run();
-fluffy.wag();
-console.log (fido.species);
-
-spot.bark();
-spot.run();
-spot.wag();
-console.log (fido.species);
-
-barnaby.sit();//Вызываем метод хранящийся в прототипе Dog для объекта barnaby
-barnaby.sit();
-
-spot.sit();
-spot.sit();
-
-console.log (spot.hasOwnProperty("sitting"));
-
-console.log (spot.hasOwnProperty("species"));
-console.log (fido.hasOwnProperty("species"));
-
-console.log (fido.hasOwnProperty("sitting"));
-
-fido.sit();
-console.log(fido.hasOwnProperty("sitting"));
-
-
-scotty.stack(); //Вызовем метод из прототипа конструктора ShowDog
-scotty.bark(); //Вызовем метод из прототипа конструктора Dog
-
-console.log (scotty.league); //вызываем свойство прототипа ShowDog
-console.log (scotty.species); //вызываем свойство прототипа Dog
+simon.makeCoffee(); //метод из прототипа конструктора Robot
+simon.blinkLights(); //метод из прототипа конструктора Robot
+simon.speak(); //из прототипа конструктора SpaceRobot (переопределенное свойство прототипа конструктора Robot)
 
