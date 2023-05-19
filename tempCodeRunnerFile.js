@@ -39,15 +39,13 @@ Dog.prototype.sitting = false;
 
 //Создадим конструктор выставочной собаки ShowDog
 function ShowDog (name, breed, weight, handler) {
-    this.name = name;
-    this.breed = breed;
-    this.weight = weight;
+    Dog.call(this, name, breed, weight);//вызываем конструктор Dog(эти 3 свойства назначаются в this кодом функции Dog)
     this.handler = handler;
 }
 
 //Создадим новый пустой объект собаки с помощью конструктора Dog и присвоим его - прототипу конструктора выставочной собаки ShowDog
 ShowDog.prototype = new Dog();
-ShowDog.prototype.constructor = ShowDog;
+ShowDog.prototype.constructor = ShowDog;//назначаем прототип конструктора ShowDog конструктору ShowDog
 
 //Настроим новый прототип конструктора ShowDog(являющийся пустым экземпляром конструктора Dog)
 ShowDog.prototype.league = "Webville";
@@ -78,7 +76,7 @@ if (scotty instanceof ShowDog) {
     console.log ("Scotty is a ShowDog");
 }
 
-
+var beatrice = new ShowDog ("Beatrice", "Pomeranian", 5, "Hamilton");
 
 
 
@@ -96,7 +94,7 @@ if (fido instanceof ShowDog) {
 console.log ("Fido constructor is " + fido.constructor);
 console.log ("Scotty constructor is " + scotty.constructor);
 
-/*var fluffy = new Dog ("Fluffy", "Poodle", 30);
+var fluffy = new Dog ("Fluffy", "Poodle", 30);
 var barnaby = new Dog ("Barnaby", "Basset Hound", 55);
 
 var spot = new Dog ("Spot", "Chihuahua", 10);
@@ -104,46 +102,11 @@ var spot = new Dog ("Spot", "Chihuahua", 10);
 spot.bark = function () {
     console.log (this.name + " says WOOF!");
 };
-*/
-/*
-
-
 
 fido.bark();
-fido.run();
-fido.wag();
-console.log (fido.species);
-
 fluffy.bark();
-fluffy.run();
-fluffy.wag();
-console.log (fido.species);
-
 spot.bark();
-spot.run();
-spot.wag();
-console.log (fido.species);
-
-barnaby.sit();//Вызываем метод хранящийся в прототипе Dog для объекта barnaby
-barnaby.sit();
-
-spot.sit();
-spot.sit();
-
-console.log (spot.hasOwnProperty("sitting"));
-
-console.log (spot.hasOwnProperty("species"));
-console.log (fido.hasOwnProperty("species"));
-
-console.log (fido.hasOwnProperty("sitting"));
-
-fido.sit();
-console.log(fido.hasOwnProperty("sitting"));
-
-
-scotty.stack(); //Вызовем метод из прототипа конструктора ShowDog
-scotty.bark(); //Вызовем метод из прототипа конструктора Dog
-
-console.log (scotty.league); //вызываем свойство прототипа ShowDog
-console.log (scotty.species); //вызываем свойство прототипа Dog
-*/
+scotty.bark();
+beatrice.bark();
+scotty.gait("Walk");
+beatrice.groom();

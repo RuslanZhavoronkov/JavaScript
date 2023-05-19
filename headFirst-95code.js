@@ -39,9 +39,7 @@ Dog.prototype.sitting = false;
 
 //Создадим конструктор выставочной собаки ShowDog
 function ShowDog (name, breed, weight, handler) {
-    this.name = name;
-    this.breed = breed;
-    this.weight = weight;
+    Dog.call(this, name, breed, weight);//вызываем конструктор Dog(эти 3 свойства назначаются в this кодом функции Dog)
     this.handler = handler;
 }
 
@@ -78,7 +76,7 @@ if (scotty instanceof ShowDog) {
     console.log ("Scotty is a ShowDog");
 }
 
-
+var beatrice = new ShowDog ("Beatrice", "Pomeranian", 5, "Hamilton");
 
 
 
@@ -96,7 +94,7 @@ if (fido instanceof ShowDog) {
 console.log ("Fido constructor is " + fido.constructor);
 console.log ("Scotty constructor is " + scotty.constructor);
 
-/*var fluffy = new Dog ("Fluffy", "Poodle", 30);
+var fluffy = new Dog ("Fluffy", "Poodle", 30);
 var barnaby = new Dog ("Barnaby", "Basset Hound", 55);
 
 var spot = new Dog ("Spot", "Chihuahua", 10);
@@ -104,12 +102,18 @@ var spot = new Dog ("Spot", "Chihuahua", 10);
 spot.bark = function () {
     console.log (this.name + " says WOOF!");
 };
-*/
-/*
-
-
 
 fido.bark();
+fluffy.bark();
+spot.bark();
+scotty.bark();
+beatrice.bark();
+scotty.gait("Walk");
+beatrice.groom();
+
+
+
+/*fido.bark();
 fido.run();
 fido.wag();
 console.log (fido.species);
