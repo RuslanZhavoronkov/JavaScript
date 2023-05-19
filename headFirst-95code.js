@@ -47,6 +47,7 @@ function ShowDog (name, breed, weight, handler) {
 
 //Создадим новый пустой объект собаки с помощью конструктора Dog и присвоим его - прототипу конструктора выставочной собаки ShowDog
 ShowDog.prototype = new Dog();
+ShowDog.prototype.constructor = ShowDog;//назначаем прототип конструктора ShowDog конструктору ShowDog
 
 //Настроим новый прототип конструктора ShowDog(являющийся пустым экземпляром конструктора Dog)
 ShowDog.prototype.league = "Webville";
@@ -69,12 +70,33 @@ ShowDog.prototype.groom = function() {
 
 //Создадим объект выставочной собаки с помощью конструктора ShowDog
 var scotty = new ShowDog ("Scotty", "Scottish Terrier", 15, "Cookie");
+if (scotty instanceof Dog) {
+    console.log ("Scotty is a Dog");
+}
+
+if (scotty instanceof ShowDog) {
+    console.log ("Scotty is a ShowDog");
+}
+
+
 
 
 
 //Создадим объекты собак с помощью конструктора Dog
 var fido = new Dog ("Fido", "Mixed", 38);
-var fluffy = new Dog ("Fluffy", "Poodle", 30);
+if (fido instanceof Dog) {
+    console.log ("Fido is a Dog");
+}
+
+if (fido instanceof ShowDog) {
+    console.log ("Fido is a ShowDog");
+}
+
+
+console.log ("Fido constructor is " + fido.constructor);
+console.log ("Scotty constructor is " + scotty.constructor);
+
+/*var fluffy = new Dog ("Fluffy", "Poodle", 30);
 var barnaby = new Dog ("Barnaby", "Basset Hound", 55);
 
 var spot = new Dog ("Spot", "Chihuahua", 10);
@@ -82,8 +104,8 @@ var spot = new Dog ("Spot", "Chihuahua", 10);
 spot.bark = function () {
     console.log (this.name + " says WOOF!");
 };
-
-
+*/
+/*
 
 
 
@@ -124,4 +146,4 @@ scotty.bark(); //Вызовем метод из прототипа констр�
 
 console.log (scotty.league); //вызываем свойство прототипа ShowDog
 console.log (scotty.species); //вызываем свойство прототипа Dog
-
+*/
