@@ -29,10 +29,7 @@ function Robot (name, year, owner) {
     this.owner = owner;
 }
 
-//2.1 Настроим прототип конструктора Robot
-Robot.prototype.deployLaser = function () {
-    console.log();
-};
+
 
 //Создадим объект игры game конструктором Game
 var game = new Game();

@@ -7,7 +7,7 @@ function Dog (name, breed, weight) {
         if (this.weight > 25) {
             console.log(this.name + " says Woof!");
         } else {
-            console.log(this.name + " says Yip!")
+            console.log(this.name + " says Yip!");
         }
     };
 }
