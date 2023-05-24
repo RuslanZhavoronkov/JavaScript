@@ -11,4 +11,8 @@ function myFunction() {
     console.log(c);
 }
 
-myFunction();
+myFunction(); 
+//12
+//13
+//c доступна только в блоке if
+             
