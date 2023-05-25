@@ -1,12 +1,3 @@
-//Ссылки на объекты при помощи констант
-const a = {
-    name: "John"
-};
-
-console.log(a.name);//John
-
-a.name = "Eden"; //изменение значения свойства объекта
-
-console.log(a.name);//Eden
-
-a = {};
+let i = 20;
+i > 10 ? i : i; 
+console.log(i);
