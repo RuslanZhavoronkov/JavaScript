@@ -9,4 +9,4 @@ a.name = "Eden"; //изменение значения свойства объе
 
 console.log(a.name);//Eden
 
-a = {};
+a = {}; //TypeError
