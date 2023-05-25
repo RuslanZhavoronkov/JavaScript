@@ -1,15 +1,21 @@
-function myFunction () {
-    let b = 2;
-    let b = 3;
+var a = 1;//глобальная переменная
+let b = 2;//глобальная переменная
 
-    console.log(b);
+function myFunction() {
+    var a = 3; //другая переменная
+    let b = 4; //другая переменная (область действия вся функция)
 
-    if(true) {
-        let c = 4;
-        let c = 5;
+    if (true) {
+        var a = 5; //переменная "a" теперь содержит значение 5;
+        let b = 6; //другая переменная
+        console.log(a); //5
+        console.log(b);//В пределах блока if переменная "b" содержит значение 6
     }
 
-    console.log(c);
+    console.log(a);//вернет 5, так как теперь переменная "a" содержит значение 5
+    console.log(b);//вернет 4
 }
-
+//Вызовем myFunction
 myFunction();
+console.log(a);
+console.log(b);
