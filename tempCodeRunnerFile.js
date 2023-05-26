@@ -1,4 +1,5 @@
-function myFunction (x = 1, y = 2, z = 3 + 5) {
-   console.log(x, y, z);
-}
-myFunction(6, 7);
+let newArray1 = [2, 3, 4];
+let newArray2 = [1];
+
+newArray2.push(... newArray1);
+console.log(newArray2);
