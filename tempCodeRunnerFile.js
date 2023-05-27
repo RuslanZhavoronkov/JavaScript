@@ -1,11 +1,6 @@
-let array1 = [1];
-let array2 = [2];
-let array3 = [...array1, ...array2, ... [3, 4]];
-let array4 = [5];
+let newArray = [1, 2, 3];
+let[d, e, f] = newArray;
 
-function myFunction(a, b, c, d) {
-    return a + b + c + d;
-}
-
-let result = myFunction(...array3, ...array4);
-console.log (result);
+console.log(d);
+console.log(e);
+console.log(f);
