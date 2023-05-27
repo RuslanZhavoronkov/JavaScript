@@ -17,3 +17,7 @@ let[d, e, f] = newArray;
 console.log(d);
 console.log(e);
 console.log(f);
+
+let [g,  , k] = [1, 2, 3];
+console.log(g);
+console.log(k);
