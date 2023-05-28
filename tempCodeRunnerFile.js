@@ -1,5 +1,5 @@
-let[q, t, [j, i]] = [1, 2, [3, 4]];
-console.log(q);
-console.log(t);
-console.log(j);
-console.log(i);
+function myFunction([a, b, c = 3] = [1, 2]) {
+    console.log(a, b, c);
+}
+
+myFunction(undefined);
