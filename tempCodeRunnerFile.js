@@ -1,5 +1,5 @@
-function myFunction ({name = 'Rafaelo', age = 25, profession = 'Designer'}={}) {
-    console.log(name, age, profession);
+function myFunction({name= 'Eduardo', age = 52, proffession = 'Designer'}={name:'Goga', age: 55}) {
+    console.log (name, age, proffession);
 }
 
-myFunction({name:'Edic', age: 52});
+myFunction(undefined);
