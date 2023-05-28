@@ -1,5 +1,5 @@
-function myFunction([a, b, c = 3] = [1, 2]) {
-    console.log(a, b, c);
+function myFunction ({name = 'Rafaelo', age = 25, profession = 'Designer'}={}) {
+    console.log(name, age, profession);
 }
 
-myFunction(undefined);
+myFunction({name:'Edic', age: 52});
