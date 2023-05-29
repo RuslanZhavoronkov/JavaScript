@@ -1,4 +1,6 @@
-var oneObject = {};
-oneObject["first" + "Name"] = "Eden";
-//console.log(oneObject["first" + "Name"]); //Eden
-console.log(oneObject.firstName);//Eden
+var numArray = [];
+for (var i = 0; i < 4; i++) {
+  numArray.push(i);
+}
+console.log(numArray);
+console.log(i);
