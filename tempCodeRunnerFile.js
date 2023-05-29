@@ -1,5 +1,2 @@
-function myFunction({name= 'Eduardo', age = 52, proffession = 'Designer'}={name:'Goga', age: 55}) {
-    console.log (name, age, proffession);
-}
-
-myFunction(undefined);
+let circleAreas = (pi, r) => pi * r * r; //При этом значение ретернется автоматически при вызове функции
+console.log(circleAreas(3.14, 3));
