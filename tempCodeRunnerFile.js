@@ -1,6 +1,10 @@
-var numArray = [];
-for (var i = 0; i < 4; i++) {
-  numArray.push(i);
-}
-console.log(numArray);
-console.log(i);
+const sum = (...args) => {
+    //const args = [x, y, z];
+    let total = 0;
+    for (let i = 0; i < args.length; i++) {
+      total += args[i];
+    }
+    console.log(total);
+  }
+
+  sum(1, 2, 3, 4, 5);
