@@ -8,3 +8,6 @@ function sumMix(x){
   }
 
   sumMix([9, 3, '7', '3']);
+
+  let g = 5;
+  console.log (Number(g));
