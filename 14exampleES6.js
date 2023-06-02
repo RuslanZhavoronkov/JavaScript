@@ -1,3 +1,4 @@
+//Конструкторы элементарных типов
 let s1 = "String";
 let s2 = new String("String");
 console.log(typeof s1); //sting
