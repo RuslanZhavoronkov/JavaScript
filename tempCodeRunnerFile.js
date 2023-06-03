@@ -1,8 +1,5 @@
-function getAge(inputString){
-        // return the girl's correct age as an integer. Happy coding :) 
-          console.log( (typeof inputString[0]) === 'number' ? Number (inputString[0]) : 0);
-          }
-          
-    
+function switchItUp(n){
+        console.log (["Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"][n]);
+      }
 
-    getAge("4 years old");
+      switchItUp(5);
