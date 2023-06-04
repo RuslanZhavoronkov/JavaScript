@@ -1,12 +1,16 @@
-function firstNonConsecutive (arr) {
-    let newArray = arr;
-  for(let i = 1; i < newArray.length; i++) {
-    if ((newArray[i] - newArray[i - 1]) != 1) {
-      console.log (newArray[i]);
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
     }
-    
-  }
-  console.log (null);
-  }
 
-  firstNonConsecutive ([1,2,3,4,6,7,8]);
+    printProfile(){   //Добавили к свойству prototype класса метод printProfile
+        console.log(`Name is: ${this.name} and Age is: ${this.age}`);
+    }
+}
+
+let p = new Person('Eden', 12);
+p.printProfile();// Name is: Eden and Age is: 12
+console.log(p.hasOwnProperty('printProfile'));
+console.log('printProfile' in Person.prototype);
+console.log(p instanceof Person);
