@@ -35,8 +35,15 @@ let {newName, otherInfo:{newAge}} = {newName: "Misha", otherInfo:{newAge:27}};
 console.log(newName, newAge); 
 
 //Использование деструктивного присваивания объекта как параметра
-function myFunction ({name = 'Rafaelo', age = 25, profession = 'Designer'}) {
+function myFunction ({name = 'Rafaelo', age = 25, profession = 'Designer'}={}) {
     console.log(name, age, profession);
 }
 
-myFunction({name:'Edic', age: 52});
+//myFunction({name:'Edic', age: 52});
+myFunction(undefined);
+
+function myFunction({name= 'Eduardo', age = 52, proffession = 'Designer'}={name:'Goga', age: 55}) {
+    console.log (name, age, proffession);
+}
+
+myFunction(undefined);

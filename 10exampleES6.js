@@ -12,3 +12,8 @@ function myFunction([a, b, c = 3] = [1, 2]) {
 }
 
 myFunction(undefined);// 1 2 3
+
+function myFunction ([a = 1, b = 2, c = 3]=[]) {
+    console.log (a, b, c);
+}
+myFunction(undefined);
