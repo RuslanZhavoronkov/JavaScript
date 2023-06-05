@@ -1,20 +1,17 @@
 let user = {
-    name: 'John',
-    surname: 'Smith',
-
-    get fullName() {
-        return `${this.name} ${this.surname}`;
+    get name () {
+        return this._name; //(this._name внутреннее свойство объекта)
     },
 
-    set fullName (value) {
-        [this.name, this.surname] = value.split(' ');
+    set name (value) {
+        if (value.length < 4) {
+            console.log ("Имя слишком короткое!");
+            return;
+        }
+        this._name = value;
+
     }
+}
 
-};
-
-console.log (user.fullName);
-
-user.fullName = 'Alice Cooper'; //перезаписали значение свойства fullName
-console.log (user.fullName);
+user.name = "Pety";
 console.log(user.name);
-console.log(user.surname);
