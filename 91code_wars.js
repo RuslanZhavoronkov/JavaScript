@@ -1,10 +1,8 @@
-function powersOfTwo(n){
-    let newArr = [];
-    let m = n + 1;
-    for (let i = 0; i < m; i++) {
-      newArr.push(2^i);
-    }
-    console.log(newArr);
+function strCount(str, letter){  
+  //code here
+  let result = 0;
+  for (let i = 0; i < str.length; i++) {
+    str[i] == letter ? result ++ : 0;
   }
-  
-  powersOfTwo(0);
+    return result;
+}
