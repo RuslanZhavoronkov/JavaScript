@@ -1,20 +1,18 @@
-class Person {
-    constructor(name) {
-        this._name_ = name;
-    }
+const correct = (string) => {
+  let oldStr = string;
+  let str = "";
+  for (let i = 0; i < oldStr.length; i++) {
+   if (oldStr[i] === '5') {
+    str += 'S';
+   } else if (oldStr[i] === '0') {
+    str += 'O';
+   } else if (oldStr[i] === '1') {
+     str += 'I';
+   } else {
+    str += oldStr[i];
+   }
+  }
+  console.log(str);
+  }
 
-    get name () {
-        return this._name_;
-    }
-
-    set name (name) {
-        this._name_ = name;
-    }
-}
-
-let slash = new Person ('Edward');
-console.log('name' in Person.prototype);
-console.log(slash.name);
-slash.name = "Edik";
-console.log (slash.name);
-console.log(slash._name_);
+  correct("L0ND0N");
