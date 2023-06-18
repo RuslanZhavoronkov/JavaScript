@@ -1,18 +1,10 @@
-const correct = (string) => {
-  let oldStr = string;
-  let str = "";
-  for (let i = 0; i < oldStr.length; i++) {
-   if (oldStr[i] === '5') {
-    str += 'S';
-   } else if (oldStr[i] === '0') {
-    str += 'O';
-   } else if (oldStr[i] === '1') {
-     str += 'I';
-   } else {
-    str += oldStr[i];
-   }
+function findMultiples(integer, limit) {
+  //your code here
+  let arr = [];
+  for (let i = integer; integer < limit; i += integer) {
+    arr.push(i);
   }
-  console.log(str);
-  }
+  console.log(arr);
+}
 
-  correct("L0ND0N");
+findMultiples(5, 25);
