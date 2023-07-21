@@ -1,4 +1,3 @@
-function addFive(num) {
-  let total = num + 5;
-  return total;
+function hello(name) {
+  return name ? `Hello, ${name[0].toUpperCase() + name.slice(1).toLowerCase()} !` : 'Hello, World!';
 }
